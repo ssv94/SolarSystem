@@ -1,0 +1,299 @@
+html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-x:hidden;
+    overflow-y: scroll;
+    font-size: 100%;
+}
+
+body {
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    max-width: 100%;
+    height: 100%;
+    overflow-x:hidden;
+    
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}   
+ 
+::-webkit-scrollbar-thumb {
+    background-color: #333;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #696969;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important; 
+    -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important; 
+    outline: none !important;
+}
+
+#main-menu {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 45px;
+    width: 100%;
+    background: #fefffb00;
+    margin: 0px;  
+    z-index: 9;
+    margin-top: -8px;
+}
+  
+#main-menu ul {
+    max-width: 800px;
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 9;
+}
+  
+#main-menu li {
+    list-style-type: none;
+    font-size: 2em;
+}
+
+#main-menu li.active {
+    text-decoration: underline;
+    text-decoration-color: #ffcd29;
+}
+  
+#main-menu a {
+    color: #ffcd29;
+    font-size: 0.6em;
+    text-decoration: none;
+    font-family:'Roboto', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+  
+#main-menu a:hover {
+    text-decoration: underline;
+}
+
+#main-menu.hidden {
+    display: none;
+}
+  
+/* Hamburger icon below */
+#hamburger-menu {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    color: white;
+    left: 8px;
+    top: 0;
+    z-index: 10;
+}
+
+ #hamburger-menu::before {
+    content: "\2630";
+    font-size: 30px;
+}
+  
+#sidebar {
+    position: absolute;
+    top:40px;
+    left: -220px;
+    max-width: 200px;
+    width: 100px;
+    height: 150px;
+    border-style: solid;
+    border-color: whitesmoke;
+    margin-top: 11px;
+    margin-left: 8px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 30px;
+    background-color: #000000;
+    font-family:'Roboto', sans-serif;
+    transition: 0.3s;
+    text-align: left;  
+}
+      
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+  
+#sidebar li {
+    line-height: 3em; 
+}
+  
+#sidebar li a {
+    text-decoration: none;
+    color: #ffcd29;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+  
+#sidebar li.active a {
+    text-decoration: underline;
+    text-decoration-color: #ffcd29;
+    text-decoration-thickness: 3px; 
+}
+
+#sidebar li a:hover {
+    color: #ffcd29;
+    text-decoration: underline;
+}
+  
+#hamburger-input:checked + #hamburger-menu + #sidebar {
+    display:block;
+    transform: translateX(0);
+    left: 0;
+}
+  
+#hamburger-input {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+      
+#hamburger-input:checked + #main-menu {
+    display: none;
+}
+
+#hamburger-input:checked + #hamburger-menu::before {
+    content: "\2715";
+}
+
+/*Hamburger icon above*/    
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+    height: auto;
+}
+
+.header {
+    background-image: url("spacebackground.webp");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 20px; 
+}
+
+.header h1 {
+    font-size: 2em;
+    text-align: center;
+    font-family:'Roboto Bold', sans-serif;
+    text-transform: uppercase;
+    padding-top: 45px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 0;
+    color:white;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    margin: auto;
+    font-family:'Roboto Bold', sans-serif;
+    font-size: 1.1em;
+    width: 88%;
+    padding-top: 2.5%;
+}
+
+p {
+    color: whitesmoke;
+    font-size: 0.9em;
+    text-align: center;
+    margin-top: 15px;
+    font-family:'Roboto', sans-serif;
+}
+
+.content {
+  width: 83%;
+  margin: auto;
+} 
+
+
+
+
+/* Media screens below */
+
+@media screen and (min-width: 482px) {
+    #main-menu {
+      display: inline;
+    }
+    #hamburger-menu {
+      display: none;
+    }
+    #hamburger-input:checked + #hamburger-menu + #sidebar {
+        left: -220px;
+    }
+
+}
+
+@media screen and (max-width: 481px) {
+    #main-menu {
+      display: none;
+    }
+    #hamburger-menu {
+      display: inline;
+    }
+}
+
+
+
+@media screen and (min-width: 769px) {
+    .header h1 {
+        font-size: 2.05em;
+    }
+
+    .content {
+        width: 75%;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+}
+
+
+@media screen and (min-width: 1025px) {
+
+    .header h1 {
+        font-size: 2.13em;
+    }
+
+    .content {
+        width: 70%;
+    }
+}
+
+
+@media screen and (min-width: 1201px) {
+    .content {
+        width: 50%;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+    
+    p {
+        font-size: 1.2em;
+    }
+}
